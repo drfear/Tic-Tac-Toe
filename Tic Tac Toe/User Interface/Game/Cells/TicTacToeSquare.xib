@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="TicTacToeSquare" customModule="Tic_Tac_Toe" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="119" height="119"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="119" height="119"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zux-YN-im3">
+                        <rect key="frame" x="0.0" y="0.0" width="119" height="119"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="X" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JCi-O5-r36">
+                                <rect key="frame" x="0.0" y="0.0" width="119" height="119"/>
+                                <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="100"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="JCi-O5-r36" firstAttribute="width" secondItem="zux-YN-im3" secondAttribute="width" id="0e6-2K-aER"/>
+                            <constraint firstItem="JCi-O5-r36" firstAttribute="height" secondItem="zux-YN-im3" secondAttribute="height" id="Kvf-aQ-PMg"/>
+                            <constraint firstAttribute="width" secondItem="zux-YN-im3" secondAttribute="height" multiplier="1:1" id="N01-F6-Io9"/>
+                            <constraint firstItem="JCi-O5-r36" firstAttribute="centerY" secondItem="zux-YN-im3" secondAttribute="centerY" id="Os2-RP-PGG"/>
+                            <constraint firstItem="JCi-O5-r36" firstAttribute="centerX" secondItem="zux-YN-im3" secondAttribute="centerX" id="wRZ-Cz-mMg"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="zux-YN-im3" firstAttribute="bottom" secondItem="gTV-IL-0wX" secondAttribute="bottom" id="2LT-pW-86p"/>
+                <constraint firstAttribute="top" secondItem="zux-YN-im3" secondAttribute="top" id="83H-4G-Ig7"/>
+                <constraint firstItem="zux-YN-im3" firstAttribute="trailing" secondItem="gTV-IL-0wX" secondAttribute="trailing" id="cll-9f-9gT"/>
+                <constraint firstItem="zux-YN-im3" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="fuY-xr-lEE"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="119" height="112"/>
+            <connections>
+                <outlet property="pieceLabel" destination="JCi-O5-r36" id="HCi-hq-haM"/>
+            </connections>
+            <point key="canvasLocation" x="78.985507246376812" y="71.651785714285708"/>
+        </collectionViewCell>
+    </objects>
+</document>
