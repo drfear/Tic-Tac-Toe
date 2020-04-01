@@ -19,7 +19,7 @@ class GameViewModelImpl {
     // game state
     private var startTime = Date()
     private var moveCount: Int = 0
-    private var matrix: SquareMatrix<TicTacToeSquareViewModel>
+    private var matrix: SquareMatrix<TicTacToeSquareViewModel>?
 
     private let gameDataWriting: GameDataWriting
     private let dateProvider: DateProvider
@@ -27,7 +27,7 @@ class GameViewModelImpl {
     init(gameDataWriting: GameDataWriting = GameDataProviderImpl(),
          dateProvider: DateProvider = DateProviderImpl()) {
         let emptySelections = (0..<9).map { _ in TicTacToeSquareViewModelImpl(piece: .empty) }
-        matrix = SquareMatrix(data: emptySelections)!
+        matrix = SquareMatrix(data: emptySelections)
         self.gameDataWriting = gameDataWriting
         self.dateProvider = dateProvider
     }
@@ -38,7 +38,7 @@ class GameViewModelImpl {
 extension GameViewModelImpl: GameViewControllerViewModel {
 
     var selections: [TicTacToeSquareViewModel] {
-        return matrix.data
+        return matrix?.data ?? []
     }
 
     func startGame() {
@@ -47,7 +47,7 @@ extension GameViewModelImpl: GameViewControllerViewModel {
     }
 
     func player(_ player: Player, selected index: Int) -> Bool {
-        var selections = matrix.data
+        var selections = matrix?.data ?? []
         let square = selections[index]
         if square.piece.isEmpty {
             selections[index] = TicTacToeSquareViewModelImpl(piece: player.piece)
@@ -89,9 +89,9 @@ private extension GameViewModelImpl {
             return row.allSatisfy { $0 == first }
         }
 
-        let winners = matrix.rows.map(mapper).filter(winnerFilter) +
-            matrix.columns.map(mapper).filter(winnerFilter) +
-            matrix.diagonals.map(mapper).filter(winnerFilter)
+        let winners = (matrix?.rows ?? []).map(mapper).filter(winnerFilter) +
+            (matrix?.columns ?? []).map(mapper).filter(winnerFilter) +
+            (matrix?.diagonals ?? []).map(mapper).filter(winnerFilter)
 
         if let winner = winners.first,
             let piece = winner.first,
