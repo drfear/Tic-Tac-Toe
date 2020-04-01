@@ -9,6 +9,23 @@
 import XCTest
 @testable import Tic_Tac_Toe
 
+// MARK: - MemoryPersistentStorageImpl
+
+class MemoryPersistentStorageImpl: PersistentStorage {
+
+    private var storage = [String: Data]()
+
+    func set(_ data: Data?, forKey key: String) {
+        storage[key] = data
+    }
+
+    func getData(forKey key: String) -> Data? {
+        return storage[key]
+    }
+}
+
+// MARK: - StartViewModelImplTests
+
 class StartViewModelImplTests: XCTestCase {
 
     var sut: StartViewModelImpl!

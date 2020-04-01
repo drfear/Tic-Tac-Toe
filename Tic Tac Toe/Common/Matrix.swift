@@ -58,5 +58,4 @@ class SquareMatrix<T> {
 
         return [forward, backward]
     }
-
 }

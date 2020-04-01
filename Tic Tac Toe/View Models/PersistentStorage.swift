@@ -30,18 +30,3 @@ class UserDefaultsPersistentStorageImpl: PersistentStorage {
         return defaults.data(forKey: key)
     }
 }
-
-// MARK: - MemoryPersistentStorageImpl
-
-class MemoryPersistentStorageImpl: PersistentStorage {
-
-    private var storage = [String: Data]()
-
-    func set(_ data: Data?, forKey key: String) {
-        storage[key] = data
-    }
-
-    func getData(forKey key: String) -> Data? {
-        return storage[key]
-    }
-}
